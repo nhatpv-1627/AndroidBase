@@ -1,8 +1,7 @@
-package com.vannhat.androidbase.ui.screens
+package com.vannhat.androidbase
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.vannhat.androidbase.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
