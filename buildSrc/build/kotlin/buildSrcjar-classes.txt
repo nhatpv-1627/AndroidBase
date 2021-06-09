@@ -1,0 +1,1 @@
+E:\Work\MyApp\AndroidBase\buildSrc\build\classes\kotlin\main\Config.class;E:\Work\MyApp\AndroidBase\buildSrc\build\classes\kotlin\main\Dependencies.class;E:\Work\MyApp\AndroidBase\buildSrc\build\classes\kotlin\main\DependenciesKt.class;E:\Work\MyApp\AndroidBase\buildSrc\build\classes\kotlin\main\Versions.class

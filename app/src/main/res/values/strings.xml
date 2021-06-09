@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidBase</string>
+    <string name="app_name_dev">AndroidBaseDEV</string>
+    <string name="app_name_stg">AndroidBaseSTG</string>
 </resources>
