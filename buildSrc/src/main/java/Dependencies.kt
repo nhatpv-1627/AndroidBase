@@ -36,9 +36,11 @@ object Dependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
     const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutine}"
 
+    const val securityCrypto = "androidx.security:security-crypto:${Versions.security}"
+
     // Retrofit
     private const val retrofitRuntime = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    private const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    private const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     private const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpLogging}"
     private const val retrofitScalars = "com.squareup.retrofit2:converter-scalars:${Versions.retrofit}"
 
@@ -82,7 +84,7 @@ object Dependencies {
 
     val retrofit =  arrayListOf<String>().apply {
         add(retrofitRuntime)
-        add(retrofitMoshi)
+        add(retrofitGson)
         add(okHttpLogging)
         add(retrofitScalars)
     }

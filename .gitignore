@@ -9,6 +9,8 @@
 .cxx
 local.properties
 *.li
+/buildSrc/build
+/buildSrc/.gradle
 
 #built application files
 *.ap_
