@@ -6,17 +6,17 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Config.compileSdk)
-    buildToolsVersion(Config.buildToolsVersion)
+    compileSdkVersion(AppConfig.compileSdk)
+    buildToolsVersion(AppConfig.buildToolsVersion)
 
     defaultConfig {
         applicationId = "com.vannhat.androidbase"
-        minSdkVersion(Config.minSdk)
-        targetSdkVersion(Config.targetSdk)
-        versionCode = Config.versionCode
-        versionName = Config.versionName
+        minSdkVersion(AppConfig.minSdk)
+        targetSdkVersion(AppConfig.targetSdk)
+        versionCode = AppConfig.versionCode
+        versionName = AppConfig.versionName
 
-        testInstrumentationRunner = Config.androidTestInstrumentation
+        testInstrumentationRunner = AppConfig.androidTestInstrumentation
         vectorDrawables.useSupportLibrary = true
         consumerProguardFiles(
             file("proguard-rules.pro")
@@ -92,4 +92,6 @@ dependencies {
     implementation(Dependencies.lifecycleLibs)
 
     implementation(Dependencies.navigation)
+
+    implementation(Dependencies.securityCrypto)
 }

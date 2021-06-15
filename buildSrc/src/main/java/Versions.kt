@@ -28,4 +28,6 @@ object Versions {
     const val lifecycle = "2.3.1"
 
     const val navigation = "2.3.5"
+
+    const val security = "1.0.0"
 }
