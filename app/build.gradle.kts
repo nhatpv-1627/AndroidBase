@@ -2,7 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-    id("dagger.hilt.android.plugin")
+    kotlin("android.extensions")
 }
 
 android {
@@ -73,8 +73,7 @@ dependencies {
     androidTestImplementation(Dependencies.androidTestLibraries)
     testImplementation(Dependencies.testLibraries)
 
-    implementation(Dependencies.hiltRuntime)
-    kapt(Dependencies.hiltCompiler)
+    implementation(Dependencies.koinLibs)
 
     implementation(Dependencies.glideRuntime)
     kapt(Dependencies.glideCompiler)

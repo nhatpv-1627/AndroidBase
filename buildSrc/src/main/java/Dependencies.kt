@@ -21,9 +21,12 @@ object Dependencies {
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
     const val glideRuntime = "com.github.bumptech.glide:glide:${Versions.glide}"
 
-    // Hilt
-    const val hiltRuntime = "com.google.dagger:hilt-android:${Versions.hilt}"
-    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    // Koin
+    private const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
+    private const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
+    private const val koinViewModel = "io.insert-koin:koin-android-viewmodel:${Versions.koin}"
+    private const val koinExt = "io.insert-koin:koin-androidx-ext:${Versions.koin}"
+    private const val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
 
     // Room
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
@@ -41,18 +44,25 @@ object Dependencies {
     // Retrofit
     private const val retrofitRuntime = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     private const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
-    private const val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpLogging}"
-    private const val retrofitScalars = "com.squareup.retrofit2:converter-scalars:${Versions.retrofit}"
+    private const val okHttpLogging =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpLogging}"
+    private const val retrofitScalars =
+        "com.squareup.retrofit2:converter-scalars:${Versions.retrofit}"
 
     // Lifecycle
     private const val lifecycleViewModelKtx =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
-    private const val lifecycleLivedata = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    private const val lifecycleLivedata =
+        "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    private const val lifecycleRuntime =
+        "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle}"
 
     // Navigation
-    private const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    private const val navigationFragment =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     private const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
-    private const val navigationDynamic = "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
+    private const val navigationDynamic =
+        "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigation}"
 
     val appLibraries = arrayListOf<String>().apply {
         add(kotlinStdLib)
@@ -60,6 +70,14 @@ object Dependencies {
         add(appcompat)
         add(constraintLayout)
         add(googleMaterial)
+    }
+
+    val koinLibs = arrayListOf<String>().apply {
+        add(koinCore)
+        add(koinAndroid)
+        add(koinViewModel)
+        add(koinExt)
+        add(koinTest)
     }
 
     val androidTestLibraries = arrayListOf<String>().apply {
@@ -71,18 +89,19 @@ object Dependencies {
         add(junit)
     }
 
-    val lifecycleLibs =  arrayListOf<String>().apply {
+    val lifecycleLibs = arrayListOf<String>().apply {
         add(lifecycleViewModelKtx)
         add(lifecycleLivedata)
+        add(lifecycleRuntime)
     }
 
-    val navigation =  arrayListOf<String>().apply {
+    val navigation = arrayListOf<String>().apply {
         add(navigationFragment)
         add(navigationUi)
         add(navigationDynamic)
     }
 
-    val retrofit =  arrayListOf<String>().apply {
+    val retrofit = arrayListOf<String>().apply {
         add(retrofitRuntime)
         add(retrofitGson)
         add(okHttpLogging)

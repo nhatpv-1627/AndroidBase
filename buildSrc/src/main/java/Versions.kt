@@ -16,7 +16,7 @@ object Versions {
 
     const val glide = "4.12.0"
 
-    const val hilt = "2.35"
+    const val koin = "2.2.3"
 
     const val room = "2.3.0"
 
