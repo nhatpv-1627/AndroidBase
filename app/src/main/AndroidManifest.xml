@@ -4,6 +4,7 @@
     package="com.vannhat.androidbase">
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:fullBackupOnly="false"
@@ -12,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidBase"
-        tools:replace="android:label,android:icon,android:allowBackup,android:fullBackupOnly,android:fullBackupContent">
+        tools:replace="android:label,android:icon,android:name,android:allowBackup,android:fullBackupOnly,android:fullBackupContent">
         <activity android:name=".ui.screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

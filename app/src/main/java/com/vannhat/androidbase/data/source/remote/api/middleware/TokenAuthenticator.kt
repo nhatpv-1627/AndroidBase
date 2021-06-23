@@ -41,13 +41,7 @@ class TokenAuthenticator(
                             "$BEARER ${newToken.accessToken}"
                         ).build()
                 } catch (error: Exception) {
-                    if (error is HttpException && (error.response()
-                            ?.code() == HttpURLConnection.HTTP_UNAUTHORIZED || error.response()
-                            ?.code() == HttpURLConnection.HTTP_SERVER_ERROR)
-                    ) {
-                        throw RefreshTokenFailException()
-                    }
-                    null
+                    throw RefreshTokenFailException()
                 }
             }
         }
