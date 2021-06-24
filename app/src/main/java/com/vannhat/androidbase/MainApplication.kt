@@ -4,7 +4,6 @@ import android.app.Application
 import com.vannhat.androidbase.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import org.koin.core.module.Module
 
 class MainApplication : Application() {
     override fun onCreate() {
@@ -14,7 +13,8 @@ class MainApplication : Application() {
             networkModule,
             repositoryModule,
             mapperModule,
-            useCaseModule
+            useCaseModule,
+            viewModelModule
         )
 
         startKoin {
