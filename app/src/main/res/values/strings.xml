@@ -2,4 +2,6 @@
     <string name="app_name">AndroidBase</string>
     <string name="app_name_dev">AndroidBaseDEV</string>
     <string name="app_name_stg">AndroidBaseSTG</string>
+    <string name="home">Home</string>
+    <string name="favorite">Favorite</string>
 </resources>
