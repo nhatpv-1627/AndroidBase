@@ -11,6 +11,9 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.vannhat.androidbase.BR
 import com.vannhat.androidbase.ui.base.utils.observeInLifecycle
+import com.vannhat.androidbase.utils.ext.handleError
+import com.vannhat.androidbase.utils.ext.hideSoftKeyBoard
+import com.vannhat.androidbase.utils.ext.showErrorMessage
 import kotlinx.coroutines.flow.onEach
 
 abstract class BaseFragment<B : ViewDataBinding, V : BaseViewModel> : Fragment() {
@@ -42,36 +45,24 @@ abstract class BaseFragment<B : ViewDataBinding, V : BaseViewModel> : Fragment()
         }
         viewModel.eventsFlow.onEach { event ->
             when (event) {
-                is BaseViewModel.Event.OnLoading -> {
-                    showLoading(event.isShowing)
-                    handleAfterLoading(event.isShowing)
-                }
-                is BaseViewModel.Event.OnError -> {
-                    handleError(event.exception)
-                }
+                is BaseViewModel.Event.OnLoading -> showLoading(event.isShowing)
+                is BaseViewModel.Event.OnError -> handleError(event.exception)
             }
         }.observeInLifecycle(viewLifecycleOwner)
     }
 
-    private fun handleError(exception: Exception) {
-        Log.d("cccccc", "error: ${exception.message}")
-
+    open fun handleError(exception: Exception) {
+        baseActivity?.handleError(exception)
     }
 
-    open fun showLoading(isLoading: Boolean) {
-        Log.d("cccccc", "error: ${isLoading}")
-        // if (isLoading) (requireActivity() as? BaseActivity<*>)?.showProgress()
-        // else (requireActivity() as? BaseActivity<*>)?.hideProgress()
-    }
-
-    open fun handleAfterLoading(isShow: Boolean) {}
+    open fun showLoading(isLoading: Boolean) {}
 
     open fun showErrorMessage(message: String) {
-        //baseActivity?.showErrorMessage(message)
+        baseActivity?.showErrorMessage(message)
     }
 
     override fun onDestroyView() {
-        //binding.root.hideSoftKeyBoard()
+        binding.root.hideSoftKeyBoard()
         super.onDestroyView()
     }
 }

@@ -30,4 +30,6 @@ object Versions {
     const val navigation = "2.3.5"
 
     const val security = "1.0.0"
+
+    const val swipeToRefreshLayout = "1.1.0"
 }

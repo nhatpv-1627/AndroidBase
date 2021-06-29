@@ -3,7 +3,7 @@ package com.vannhat.androidbase.utils.config
 import com.vannhat.androidbase.BuildConfig
 
 object ApiConfig {
-    private const val BASE_URL_DEV = "https://vannhat.dev.vn/"
+    private const val BASE_URL_DEV = "http://www.mocky.io/v2/"
     private const val BASE_URL_STG = "https://vannhat.stg.com/v1/"
     private const val BASE_URL_PROD = "https://vannhat.prod.com/v1/"
 
