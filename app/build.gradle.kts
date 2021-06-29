@@ -70,6 +70,7 @@ android {
 
 dependencies {
     implementation(Dependencies.appLibraries)
+    implementation(Dependencies.swipeToRefreshLayout)
     androidTestImplementation(Dependencies.androidTestLibraries)
     testImplementation(Dependencies.testLibraries)
 

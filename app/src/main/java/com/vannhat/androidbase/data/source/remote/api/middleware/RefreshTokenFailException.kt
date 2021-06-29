@@ -1,3 +1,5 @@
 package com.vannhat.androidbase.data.source.remote.api.middleware
 
-class RefreshTokenFailException : Exception("401 - Refresh token failed!")
+import java.io.IOException
+
+class RefreshTokenFailException : IOException("401 - Refresh token failed!")

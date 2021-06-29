@@ -4,4 +4,10 @@
     <string name="app_name_stg">AndroidBaseSTG</string>
     <string name="home">Home</string>
     <string name="favorite">Favorite</string>
+
+    <!--Error messages-->
+    <string name="error_timeout">Timeout Connecting!</string>
+    <string name="no_connection">No Connection!</string>
+    <string name="unexpected_error">Unexpected Error!</string>
+    <string name="blog">BLOG</string>
 </resources>

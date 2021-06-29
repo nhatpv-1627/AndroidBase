@@ -5,20 +5,6 @@ import com.google.gson.annotations.SerializedName
 
 data class DataResponse<T>(
     @Expose @SerializedName("data") val data: T,
-    @Expose @SerializedName("meta") val meta: Meta? = null
-) {
-    data class Meta(
-        @Expose
-        @SerializedName("current_page")
-        val currentPage: Int?,
-        @Expose
-        @SerializedName("next_page")
-        val nextPage: Int?,
-        @Expose
-        @SerializedName("prev_page")
-        val prevPage: Int?,
-        @Expose
-        @SerializedName("total_pages")
-        val totalPages: Int?
-    )
-}
+    @Expose @SerializedName("status_code") val statusCode: String?,
+    @Expose @SerializedName("message") val message: String?
+)

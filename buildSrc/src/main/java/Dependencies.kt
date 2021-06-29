@@ -4,6 +4,10 @@ object Dependencies {
     //std lib
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
+    //view
+    const val swipeToRefreshLayout =
+        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeToRefreshLayout}"
+
     //android ui
     private const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     private const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
