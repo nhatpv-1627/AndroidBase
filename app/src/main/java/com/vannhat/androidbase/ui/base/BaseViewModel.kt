@@ -10,6 +10,8 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent
+import retrofit2.HttpException
+import retrofit2.Response
 
 open class BaseViewModel : ViewModel(), KoinComponent {
 
@@ -22,8 +24,8 @@ open class BaseViewModel : ViewModel(), KoinComponent {
     }
 
     protected fun <T> viewModelScope(
-        liveData: MutableLiveData<T>,
         shouldBeShowLoading: Boolean = true,
+        liveData: MutableLiveData<T>? = null,
         onSuccess: ((T) -> Unit)? = null,
         onError: ((Exception) -> Unit)? = null,
         onRequest: suspend CoroutineScope.() -> T
@@ -32,30 +34,13 @@ open class BaseViewModel : ViewModel(), KoinComponent {
             if (shouldBeShowLoading) eventChannel.send(Event.OnLoading(true))
             try {
                 val response = onRequest()
-                onSuccess?.invoke(response) ?: kotlin.run {
-                    liveData.value = response
-                }
-            } catch (e: Exception) {
-                onError?.invoke(e) ?: kotlin.run {
-                    eventChannel.send(Event.OnError(e))
-                }
-            }
-            if (shouldBeShowLoading) eventChannel.send(Event.OnLoading(false))
-        }
-    }
 
-    protected fun <T> viewModelScope(
-        shouldBeShowLoading: Boolean = true,
-        onSuccess: ((T) -> Unit)? = null,
-        onError: ((Exception) -> Unit)? = null,
-        onRequest: suspend CoroutineScope.() -> T
-    ) {
-        viewModelScope.launch {
-            if (shouldBeShowLoading) eventChannel.send(Event.OnLoading(true))
-            try {
-                val response = onRequest()
+                if (response is Response<*> && !response.isSuccessful)
+                    throw HttpException(response)
+
                 withContext(Dispatchers.Main) {
                     onSuccess?.invoke(response)
+                    liveData?.value = response
                 }
 
             } catch (e: Exception) {
